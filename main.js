@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron')
+const path  = require('path');
   
 function createWindow () {
   
@@ -7,7 +8,8 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      enableRemoteModule: true
+        preload: path.join(__dirname, 'preload.js'),
+        enableRemoteModule: false
     }
   })
   
